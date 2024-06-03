@@ -3,16 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project: Rock Paper Scissors</title>
-    <script src="script.js" defer></script>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <div class="container">
-      <button class="rock">Rock</button>
-      <button class="paper">Paper</button>
-      <button class="scissors">Scissors</button>
+    <div class="header">
+      <p>rock * paper * scissors</p>
     </div>
-    <div class="outcome"></div>
-    <div class="score"></div>
+    <div class="score-container hide">
+      <p class="player-name">🥷<br />you:</p>
+      <p class="player-score">0</p>
+    </div>
+    <div class="board">
+      <div class="items-container player">
+        <div class="image-wrapper player rock">
+          <img src="/img/rock_1.png" alt="Rock" class="hover-image" />
+          <img src="/img/rock_2.png" alt="Rock" />
+        </div>
+        <div class="image-wrapper player paper">
+          <img src="/img/paper_1.png" alt="Paper" class="hover-image" />
+          <img src="/img/paper_2.png" alt="Paper" />
+        </div>
+        <div class="image-wrapper player scissors">
+          <img src="/img/scissors_1.png" alt="Scissors" class="hover-image" />
+          <img src="/img/scissors_2.png" alt="Scissors" />
+        </div>
+      </div>
+      <p class="round-result resultPop">🏆<br />Score 5 points<br />to win!</p>
+      <div class="items-container computer">
+        <div class="image-wrapper computer rock">
+          <img src="/img/rock_2.png" alt="Rock" />
+        </div>
+        <div class="image-wrapper computer paper">
+          <img src="/img/paper_2.png" alt="Paper" />
+        </div>
+        <div class="image-wrapper computer scissors">
+          <img src="/img/scissors_2.png" alt="Scissors" />
+        </div>
+      </div>
+    </div>
+    <div class="score-container computer hide">
+      <p class="computer-name">🤖<br />bot:</p>
+      <p class="computer-score">0</p>
+    </div>
+    <div class="footer">
+      <a href="https://github.com/Verningt" target="_blank"
+        ><i class="fa fa-github"></i> github.com/verningt</a
+      >
+    </div>
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   </body>
 </html>

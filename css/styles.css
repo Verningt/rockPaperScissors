@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Iceland&family=Jersey+10&family=Pixelify+Sans:wght@400..700&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* https://www.flaticon.com/free-icon/cursor_752503?related_id=752503&origin=pack */
+  cursor: url("/img/pointer.png"), auto;
+}
+
+body {
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Chelsea Market", "Quantico", "Roboto";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgb(0, 3, 152) 0%,
+    rgb(12, 0, 178) 12%,
+    rgb(7, 0, 204) 25%,
+    rgb(9, 0, 142) 39%,
+    rgb(4, 0, 88) 50%,
+    rgb(0, 0, 0) 51%,
+    rgba(34, 0, 0, 1) 60%,
+    rgba(86, 0, 0, 1) 76%,
+    rgba(56, 0, 0, 1) 91%,
+    rgba(38, 0, 0, 1) 100%
+  );
+}
+
+.header,
+.footer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(
+    135deg,
+    rgb(18, 21, 102) 0%,
+    rgb(11, 13, 79) 50%,
+    rgb(1, 3, 65) 51%,
+    rgb(0, 1, 72) 75%,
+    rgb(0, 5, 56) 100%
+  );
+}
+
+.header {
+  top: 0;
+}
+
+.footer {
+  bottom: 0;
+}
+
+.header p,
+.footer a {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 5px;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: springgreen;
+  /* https://www.flaticon.com/free-icon/cursor_8590106?k=1716943602417&sign-up=google */
+  cursor: url("/img/cross.png"), auto;
+}
+
+.score-container {
+  width: 250px;
+  text-align: center;
+}
+
+.score-container p,
+.round-result,
+.player-name,
+.computer-name,
+.computer-score,
+.player-score {
+  text-transform: uppercase;
+}
+
+.score-container p,
+.round-result {
+  color: rgb(180, 180, 255);
+  text-shadow: 0 0 50px rgb(150, 150, 255), 0 0 200px rgb(100, 100, 255);
+}
+
+.score-container.computer p,
+.score-container.computer .round-result {
+  color: rgb(255, 180, 180);
+  text-shadow: 0 0 50px rgb(255, 150, 150), 0 0 200px rgb(255, 100, 100);
+}
+
+.round-result {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.round-result::first-line {
+  font-size: 100px;
+}
+
+.player-name,
+.computer-name {
+  font-size: 2.5rem;
+}
+
+.computer-score,
+.player-score {
+  font-size: 10rem;
+}
+
+.player-name::first-letter,
+.computer-name::first-letter {
+  font-size: 5rem;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.fade-out {
+  opacity: 1;
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes resultPop {
+  from {
+    opacity: 0;
+    scale: 1.05;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.resultPop {
+  animation: resultPop 0.5s forwards;
+}
+
+.board {
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: radial-gradient(at center, #000550, #000000) padding-box,
+    linear-gradient(
+        to bottom,
+        rgba(149, 149, 149, 1) 0%,
+        rgba(13, 13, 13, 1) 46%,
+        rgba(1, 1, 1, 1) 50%,
+        rgba(10, 10, 10, 1) 53%,
+        rgba(78, 78, 78, 1) 76%,
+        rgba(56, 56, 56, 1) 87%,
+        rgba(27, 27, 27, 1) 100%
+      )
+      border-box;
+  border: 5px solid transparent;
+  padding: 5px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.75);
+  border-radius: 120px;
+}
+
+.items-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 500px;
+  box-sizing: content-box;
+  background: linear-gradient(180deg, rgb(90, 90, 255), rgba(30, 30, 255, 0.5));
+}
+
+.items-container.player {
+  border-radius: 110px 0 0 110px;
+}
+
+.items-container.computer {
+  background: linear-gradient(180deg, rgb(255, 90, 90), rgba(255, 30, 30, 0.5));
+  border-radius: 0 110px 110px 0;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 25px;
+}
+
+.image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: ease-in-out;
+}
+
+.image-wrapper.player img.hover-image {
+  opacity: 0;
+}
+
+.image-wrapper.player:hover img.hover-image {
+  opacity: 1;
+}
+
+.image-wrapper.player:hover img:not(.hover-image) {
+  opacity: 0;
+}
+
+.items-container.player .image-wrapper {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.items-container.computer .image-wrapper {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.items-container.player .image-wrapper:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  /* https://www.flaticon.com/free-icon/cursor_8590106?k=1716943602417&sign-up=google */
+  cursor: url("/img/cross.png"), auto;
+  filter: sepia(100%) grayscale(100%) brightness(150%);
+  transition: 0.2s;
+}
+
+.items-container.computer .image-wrapper:hover {
+  /* https://www.flaticon.com/free-icon/cancel_8590184?related_id=8590184 */
+  cursor: url("/img/hand.png"), auto;
+  animation: shake 0.3s infinite;
+}
+
+.image-wrapper.computer img.hover-image {
+  opacity: 0;
+}
+
+.items-container.computer img:hover {
+  filter: brightness(1) invert(15%) hue-rotate(338deg) contrast(120%)
+    opacity(50%);
+}
+
+@keyframes scaleAnimate {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.9);
+  }
+  35% {
+    transform: scale(0.9);
+  }
+  55% {
+    transform: scale(0.9);
+  }
+  65% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.scaleAnimate {
+  animation: scaleAnimate 0.5s;
+}
+
+.shake {
+  animation: shake infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.hide {
+  visibility: hidden;
+}
